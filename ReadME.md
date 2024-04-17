@@ -1,4 +1,4 @@
-# Prueba Tecnica - EnerClic
+# Prueba Tecnica - Terminal Chat
 
 # **Chat Application**
 

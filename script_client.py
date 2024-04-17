@@ -9,7 +9,7 @@ class Client():
         This sets up the client to communicate over a specified port.
         """
         self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Create a client socket
-        self.client.connect(("server", 8080))  # Connect to the server at localhost on port 8080
+        self.client.connect(("localhost", 8080))  # Connect to the server at localhost on port 8080
         print("Conexion exitosa con el Servidor en puerto 8080")  # Inform user of successful connection
         self.client_number = self.client.getsockname()[1]  # Retrieve and store the client's port number for reference
         self.message_manager = MessageManager()  # Instantiate the message manager to handle messages

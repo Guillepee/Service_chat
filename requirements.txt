@@ -1,0 +1,5 @@
+# This file lists the requirements for running the chat application.
+# Python Standard Libraries are used, which do not require installation via pip.
+
+# Minimum Python version required
+python_version >= 3.6

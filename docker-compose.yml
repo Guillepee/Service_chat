@@ -1,0 +1,33 @@
+
+version: '3'
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    ports:
+      - "8080:8080"  # Asegurando que el puerto en el código coincida con el mapeo
+    networks:
+      - app-network
+
+  client1:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    depends_on:
+      - server
+    networks:
+      - app-network
+
+  client2:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    depends_on:
+      - server
+    networks:
+      - app-network
+      
+networks:
+  app-network:
+    driver: bridge

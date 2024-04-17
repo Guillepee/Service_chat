@@ -1,0 +1,14 @@
+# Usar una imagen base de Python
+FROM python:3.8-slim
+
+# Establecer el directorio de trabajo
+WORKDIR /app
+
+# Copiar los scripts necesarios para el cliente
+COPY script_client.py /app/
+COPY message_manager.py /app/
+COPY chat_thread.py /app/
+COPY db_messages.json /app/ 
+
+# Comando para ejecutar el cliente
+CMD ["python", "script_client.py"]

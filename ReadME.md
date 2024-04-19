@@ -23,25 +23,33 @@ This project is a basic chat application that allows multiple clients to connect
 
 ### **Starting the Server**
 
-To start the server, run the **`server.py`** script:
+Create a Docker Network, before running the containers, you need to create a Docker network to enable communication between the containers::
 
 ```bash
 
-python server.py
+docker network create my_network
+```
+
+
+### **Run the Server Container**
+
+Execute the server in the Docker network with the following command:
+
+```bash
+
+docker run -d --net my_network --name server -p 8080:8080 script-server
 ```
 
 This will initialize the server and wait for client connections on localhost port 8080.
 
-### **Running a Client**
+### **Run the Client Container**
 
-To start a client instance, run the **`client.py`** script:
+Execute the client in the same network to ensure it can communicate with the server:
 
 ```bash
 
-python client.py
+docker run -it --net my_network script-client
 ```
-
-Each client will connect to the server on the same localhost and port 8080.
 
 ## **Architecture**
 
